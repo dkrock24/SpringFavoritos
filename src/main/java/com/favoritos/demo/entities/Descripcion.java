@@ -14,7 +14,8 @@ import java.util.Date;
 	@NamedQuery(name="Descripcion.findAll", query="SELECT d FROM Descripcion d"),
 	@NamedQuery(name="Descripcion.findActives", query="SELECT count(d) FROM Descripcion d where d.estado=1"),
 	@NamedQuery(name="Descripcion.findInactives", query="SELECT count(d) FROM Descripcion d where d.estado=0"),
-	@NamedQuery(name="Descripcion.findProcess", query="SELECT count(d) FROM Descripcion d where d.estado=3")
+	@NamedQuery(name="Descripcion.findProcess", query="SELECT count(d) FROM Descripcion d where d.estado=3"),
+	@NamedQuery(name="Descripcion.demo", query="SELECT d FROM Descripcion d where d.numeroDisco = :disco")
 })
 
 public class Descripcion implements Serializable {
