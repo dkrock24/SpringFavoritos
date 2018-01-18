@@ -1,5 +1,6 @@
 package com.favoritos.demo.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -108,11 +109,23 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value = "/saveUpdate", method = RequestMethod.POST)
-	public String saveUpdate(Model model, @ModelAttribute("descripcion")Descripcion descripcion, BindingResult result) {
+	public String saveUpdate(Model model, @ModelAttribute("Descripcion")Descripcion descripcion, BindingResult result) {
 		
 		Descripcion d = descripcionServices.findOne(descripcion.getIdDescripcion());
 		
-		d.setNombreCurso(descripcion.getNombreCurso());		
+		Date fecha = new Date(0);
+		fecha = (Date) d.getFechaPublicacion();
+		
+		d.setNombreCurso(descripcion.getNombreCurso());			
+		d.setDescripcion(descripcion.getDescripcion());		
+		d.setEstado(descripcion.getEstado());
+		d.setFechaPublicacion(descripcion.getFechaPublicacion());
+		d.setFormador(descripcion.getFormador());
+		//d.setGeneroBean(descripcion.getGeneroBean());
+		d.setIdioma(descripcion.getIdioma());
+		d.setNumeroDisco(descripcion.getNumeroDisco());
+		d.setPeso(descripcion.getPeso());
+		d.setFechaPublicacion( fecha );
 		
 		descripcionServices.save(d);
 		

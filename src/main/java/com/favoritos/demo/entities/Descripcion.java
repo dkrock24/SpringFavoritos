@@ -26,6 +26,7 @@ public class Descripcion implements Serializable {
 	@Column(name="id_descripcion")
 	private int idDescripcion;
 
+	@Column(name="descripcion")
 	private String descripcion;
 
 	private int estado;
