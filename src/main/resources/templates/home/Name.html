@@ -16,11 +16,7 @@
 	
 	
 	
-	
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
 
 
 
@@ -92,43 +88,11 @@
 						<div class="monthly-grid">
 							<div class="panel panel-widget">
 								<div class="search">
-									<form th:action="${url}" method="post"
-										modelAttribute="Descripcion">
-										<input type="text" value="" placeholder="search..."
-											th:name="${valor}" /> <input type="submit" />
+									<form action="/byName" method="post" modelAttribute="Descripcion">
+										<input type="text" value="" placeholder="search..." name="nombreCurso" /> <input
+											type="submit" />
 									</form>
 								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="content">
-					<div class="col-md-12">
-						<div class="monthly-grid">
-							<div class="panel panel-widget">
-								<table class="table">
-									<tr>
-										<td>Teacher</td>
-										<td>Name</td>
-										<td>Size</td>
-										<td>Status</td>
-										<td>Gender</td>
-										<td>Languages</td>
-									</tr>
-									<tr th:each="curso : ${ cursos }">
-										<td th:text="${ curso.formador }"></td>
-										<td th:text="${ curso.nombreCurso }"></td>
-										<td th:text="${ curso.peso }"></td>
-										<td th:switch="${ curso.estado }">
-											<label th:case="0">Open</label>
-											<label th:case="1">Close</label>
-											<label th:case="3">In Progress</label>
-										</td>
-										<td th:text="${ curso.generoBean.genero }"></td>
-										<td th:text="${ curso.idioma }"></td>
-									</tr>
-								</table>
 							</div>
 						</div>
 					</div>

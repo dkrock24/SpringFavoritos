@@ -2,6 +2,7 @@ package com.favoritos.demo.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -20,6 +21,10 @@ public class Genero implements Serializable {
 	private String descripcion;
 
 	private String genero;
+
+	//bi-directional many-to-one association to Descripcion
+	@OneToMany(mappedBy="generoBean")
+	private List<Descripcion> descripcions;
 
 	public Genero() {
 	}
@@ -46,6 +51,28 @@ public class Genero implements Serializable {
 
 	public void setGenero(String genero) {
 		this.genero = genero;
+	}
+
+	public List<Descripcion> getDescripcions() {
+		return this.descripcions;
+	}
+
+	public void setDescripcions(List<Descripcion> descripcions) {
+		this.descripcions = descripcions;
+	}
+
+	public Descripcion addDescripcion(Descripcion descripcion) {
+		getDescripcions().add(descripcion);
+		descripcion.setGeneroBean(this);
+
+		return descripcion;
+	}
+
+	public Descripcion removeDescripcion(Descripcion descripcion) {
+		getDescripcions().remove(descripcion);
+		descripcion.setGeneroBean(null);
+
+		return descripcion;
 	}
 
 }

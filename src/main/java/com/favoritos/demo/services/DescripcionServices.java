@@ -13,5 +13,7 @@ public interface DescripcionServices extends CrudRepository<Descripcion, Integer
 	int findInactives();
 	int findProcess();	
 	List<Descripcion> demo(@Param("disco") int id);
+	List<Descripcion> byName(@Param("name") String curso);
+		
 	
 }

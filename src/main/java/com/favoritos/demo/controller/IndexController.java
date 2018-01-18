@@ -59,6 +59,29 @@ public class IndexController {
 		List<Descripcion> d = (List) descripcionServices.demo(disco);
 		
 		model.addAttribute("cursos", d);
+		model.addAttribute("url", "byDisc");
+		model.addAttribute("valor", "numeroDisco");	
+		
+		
+		return "home/SearchByDisc";
+	}
+	
+	@RequestMapping("/name")
+	public String Name(Model model) {
+		model.addAttribute("url", "name");
+		return "home/Name";
+	}
+	
+	@RequestMapping(value = "/byName", method = RequestMethod.POST)
+	public String byName( Model model, @ModelAttribute("descripcion") Descripcion descripcion, BindingResult result) {
+		
+		String curso = descripcion.getNombreCurso();
+		System.out.println('%'+curso+'%');
+		List<Descripcion> d = (List<Descripcion>) descripcionServices.byName('%'+curso+'%');
+		
+		model.addAttribute("cursos", d);
+		model.addAttribute("url", "byName");
+		model.addAttribute("valor", "nombreCurso");	
 		
 		return "home/SearchByDisc";
 	}

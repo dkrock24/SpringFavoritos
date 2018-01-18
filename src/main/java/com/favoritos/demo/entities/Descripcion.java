@@ -15,9 +15,9 @@ import java.util.Date;
 	@NamedQuery(name="Descripcion.findActives", query="SELECT count(d) FROM Descripcion d where d.estado=1"),
 	@NamedQuery(name="Descripcion.findInactives", query="SELECT count(d) FROM Descripcion d where d.estado=0"),
 	@NamedQuery(name="Descripcion.findProcess", query="SELECT count(d) FROM Descripcion d where d.estado=3"),
-	@NamedQuery(name="Descripcion.demo", query="SELECT d FROM Descripcion d where d.numeroDisco = :disco")
+	@NamedQuery(name="Descripcion.demo", query="SELECT d FROM Descripcion d where d.numeroDisco = :disco"),
+	@NamedQuery(name="Descripcion.byName", query="SELECT d FROM Descripcion d where d.nombreCurso LIKE :name")
 })
-
 public class Descripcion implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -39,8 +39,6 @@ public class Descripcion implements Serializable {
 	@Column(name="foto_curso")
 	private String fotoCurso;
 
-	private String genero;
-
 	private String idioma;
 
 	@Column(name="nombre_curso")
@@ -51,6 +49,11 @@ public class Descripcion implements Serializable {
 
 	@Lob
 	private String peso;
+
+	//bi-directional many-to-one association to Genero
+	@ManyToOne
+	@JoinColumn(name="genero")
+	private Genero generoBean;
 
 	public Descripcion() {
 	}
@@ -103,14 +106,6 @@ public class Descripcion implements Serializable {
 		this.fotoCurso = fotoCurso;
 	}
 
-	public String getGenero() {
-		return this.genero;
-	}
-
-	public void setGenero(String genero) {
-		this.genero = genero;
-	}
-
 	public String getIdioma() {
 		return this.idioma;
 	}
@@ -141,6 +136,14 @@ public class Descripcion implements Serializable {
 
 	public void setPeso(String peso) {
 		this.peso = peso;
+	}
+
+	public Genero getGeneroBean() {
+		return this.generoBean;
+	}
+
+	public void setGeneroBean(Genero generoBean) {
+		this.generoBean = generoBean;
 	}
 
 }
