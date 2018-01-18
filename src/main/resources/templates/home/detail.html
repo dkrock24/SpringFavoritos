@@ -8,23 +8,7 @@
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
-
-
-
-
-
 
 
 
@@ -52,8 +36,6 @@
 
 <script th:src="@{ js/pie-chart.js}" type="text/javascript"></script>
 
-
-
 </head>
 <body>
 
@@ -67,8 +49,8 @@
 					<div class="header_top">
 						<div class="top_right">
 							<ul>
-								<li><a href="contact.html">help</a></li>|
-								<li><a href="contact.html">Contact</a></li>|
+								<li><a href="contact.html">help</a></li>
+								<li><a href="contact.html">Contact</a></li>
 								<li><a href="checkout.html">Delivery information</a></li>
 							</ul>
 						</div>
@@ -83,23 +65,83 @@
 				</div>
 				<div class="clearfix"></div>
 
-				<div class="content">
-					<div class="col-md-6">
-						<div class="monthly-grid">
-							<div class="panel panel-widget">
-								<div class="search">
-									<form action="/byName" method="post" modelAttribute="Descripcion">
-										<input type="text" value="" placeholder="search..." name="nombreCurso" /> <input
-											type="submit" />
-									</form>
-								</div>
-							</div>
+			</div>
+			<div class="header_bg">
+
+				<div class="header">
+					<div class="head-t">
+						<div class="logo">
+							<a href="index.html"><img src="images/logo.png"
+								class="img-responsive" alt="" /> </a>
 						</div>
+
+						<div class="header_right">
+							<div class="rgt-bottom">
+
+
+								<div class="clearfix"></div>
+							</div>
+							<div class="search">
+								<form>
+									<input type="text" value="" placeholder="search..." /> <input
+										type="submit" value="" />
+								</form>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="clearfix"></div>
 					</div>
 				</div>
 
 			</div>
+			<!-- //header-ends -->
 
+			<!--content-->
+			<div class="content">
+				<div class="monthly-grid">
+					<div class="panel panel-widget">
+						<div class="panel-title">Welcome</div>
+						<div class="panel-body">
+							<!-- status -->
+							<div class="contain">
+								<div class="gantt"></div>
+							</div>
+							<!-- status -->
+						</div>
+					</div>
+				</div>
+
+				<!--//area-->
+				<div class="col-md-5 skil">
+
+					<div class="content-top-1">
+						<div class="col-md-6 top-content">
+							<h5>Cover Curse</h5>
+							<label th:text="${ active } "></label>
+						</div>
+						<div class="col-md-6 top-content1">
+							<div class="pie-title-center">
+								<span class="pie-value"> <img
+									src="https://i.ytimg.com/vi/RRHnvAhqBFU/maxresdefault.jpg"></img>
+								</span>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+
+
+				</div>
+				<div class="col-md-7 mid-content-top">
+					<div class="middle-content">
+						<h3>Detail Curso</h3>
+
+
+					</div>
+
+				</div>
+				<div class="clearfix"></div>
+
+			</div>
 
 		</div>
 	</div>
@@ -117,8 +159,10 @@
 						<span> Search</span> <span class="fa fa-angle-right"
 						style="float: right"></span></a>
 					<ul id="menu-academico-sub">
-						<li id="menu-academico-avaliacoes"><a href="/disc">By Disc</a></li>
-						<li id="menu-academico-avaliacoes"><a href="/name">By Name</a></li>
+						<li id="menu-academico-avaliacoes"><a href="/disc">By
+								Disc</a></li>
+						<li id="menu-academico-avaliacoes"><a href="/name">By
+								Name</a></li>
 						<li id="menu-academico-boletim"><a href="sunglasses.html">Autor</a></li>
 					</ul></li>
 				<li id="menu-academico"><a href="sunglasses.html"><i

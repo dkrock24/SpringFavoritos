@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>::Home::</title>
+
+<script type="application/x-javascript">
+	
+	
+	
+	
+	
+	
+	
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
+
+
+
+</script>
+
+<link rel='stylesheet' th:href="@{ ../css/bootstrap.min.css }"
+	type='text/css' />
+<link rel='stylesheet' th:href="@{ ../css/style.css }" type='text/css' />
+<link th:href="@{ ../css/font-awesome.css}" rel="stylesheet" />
+
+
+<link
+	href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400'
+	rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Montserrat:400,700'
+	rel='stylesheet' type='text/css' />
+
+<link rel="stylesheet" th:href="@{ ../css/icon-font.min.css} "
+	type='text/css' />
+<script th:src="@{ ../js/amcharts.js } "></script>
+<script th:src="@{ ../js/serial.js } "></script>
+<script th:src="@{ ../js/light.js }"></script>
+<!-- //lined-icons -->
+<script th:src="@{ ../js/jquery-1.10.2.min.js }"></script>
+
+<style>
+#info{
+	color:black;
+}
+.form-control {
+    color: #2C2CC9 !important;
+}
+</style>
+
+</head>
+<body>
+
+	<div class="left-content">
+		<div class="inner-content">
+			<!-- header-starts -->
+			<div class="header-section">
+				<!-- top_bg -->
+				<div class="top_bg">
+
+					<div class="header_top">
+						<div class="top_right">
+							<ul>
+								<li><a href="contact.html">help</a></li>
+								<li><a href="contact.html">Contact</a></li>
+								<li><a href="checkout.html">Delivery information</a></li>
+							</ul>
+						</div>
+						<div class="top_left">
+							<h2>
+								<span></span> User : Rafael.Gutierrez
+							</h2>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+
+				</div>
+				<div class="clearfix"></div>
+
+			</div>
+			<div class="header_bg">
+
+				<div class="header">
+					<div class="head-t">
+						<div class="logo">
+							<a href="index.html"><img src="../images/logo.png"
+								class="img-responsive" alt="" /> </a>
+						</div>
+
+						<div class="header_right">
+							<div class="rgt-bottom">
+
+
+								
+							</div>
+							<div class="search">
+								<form>
+									<input type="text" value="" placeholder="search..." /> <input
+										type="submit" value="" />
+								</form>
+							</div>
+							
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+
+			</div>
+			<!-- //header-ends -->
+
+			<!--content-->
+			<div class="content">
+
+				<div class="panel panel-primary two">
+					<div class="panel-heading"> <label th:text="${ curso.nombreCurso }"></label> </div>
+					<div class="panel-body ont two">
+						<p>
+						<div class="col-md-5 skil">
+
+							<div class="content-top-1">
+								<div class="col-md-12 top-content">
+									<h5>Cover Course</h5>
+									<img src="https://i.ytimg.com/vi/RRHnvAhqBFU/maxresdefault.jpg"
+										width="100%" />
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+
+
+						<div class="col-md-7 mid-content-top">
+							<div class="middle-content">
+								<h3>Detail Course</h3>
+								<form action="/saveUpdate" method="post" modelAttribute="Descripcion">
+								<table class="table" id="info">
+									<thead class="alert alert-danger">
+									<tr >
+										<td>Values</td>
+										<td>Information</td>
+									</tr>
+									</thead>
+									<tr>
+										<td>Course Name</td>
+										<td>
+											<input type="hidden" th:value="${ curso.idDescripcion }" class="form-control" name="idDescripcion"/>
+											<input type="text" th:value="${ curso.nombreCurso }" class="form-control" name="nombreCurso"/>
+										</td>
+									</tr>
+									<tr>										
+										<td>Trainer</td>
+										<td>
+											<input type="text" th:value="${ curso.formador }" class="form-control" name="formador"/>
+										</td>
+									</tr>
+									<tr>										
+										<td>Gender</td>
+										<td>
+											<input type="text" th:value="${ curso.generoBean.genero }" class="form-control" name="genero"/>
+										</td>
+									</tr>
+									<tr>										
+										<td>Languages</td>
+										<td>
+											<input type="text" th:value="${ curso.idioma }" class="form-control" name="idioma"/>
+										</td>
+									</tr>
+									<tr>										
+										<td>Disc</td>
+										<td>
+											<input type="text" th:value="${ curso.numeroDisco }" class="form-control" name="numeroDisco"/>
+										</td>
+									</tr>
+									<tr>										
+										<td>Size</td>
+										<td>
+											<input type="text" th:value="${ curso.peso }" class="form-control" name="peso"/>
+										</td>
+									</tr>
+									<tr>										
+										<td>State</td>
+										<td>
+											<input type="text" th:value="${ curso.estado }" class="form-control" name="estado"/>
+										</td>									
+
+									</tr>
+									<tr>
+										<td>Descripction</td>
+										<td>
+											<textarea th:text="${ curso.descripcion }" class="form-control" name="descripcion"/>
+										</td>	
+									</tr>
+									<tr>
+										<td colspan="2">
+											<input type="submit" value="Save" class="btn btn-info"/>
+											<a href="/name" class="btn btn-success">Back</a>
+										</td>
+									</tr>
+								</table>
+								</form>
+							</div>
+
+						</div>
+
+						</p>
+
+					</div>
+					<div class="panel-footer"><p th:text="'Date : ' + ${ curso.fechaPublicacion }"></p></div>
+				</div>
+
+
+				<div class="clearfix"></div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="sidebar-menu">
+		<header class="logo1">
+			<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span>
+			</a>
+		</header>
+		<div style="border-top: 1px ridge rgba(255, 255, 255, 0.15)"></div>
+		<div class="menu">
+			<ul id="menu">
+				<li><a href="/index"><i class="fa fa-tachometer"></i> <span>Home</span></a></li>
+				<li id="menu-academico"><a href="#"><i class="fa fa-table"></i>
+						<span> Search</span> <span class="fa fa-angle-right"
+						style="float: right"></span></a>
+					<ul id="menu-academico-sub">
+						<li id="menu-academico-avaliacoes"><a href="/disc">By
+								Disc</a></li>
+						<li id="menu-academico-avaliacoes"><a href="/name">By
+								Name</a></li>
+						<li id="menu-academico-boletim"><a href="sunglasses.html">Autor</a></li>
+					</ul></li>
+				<li id="menu-academico"><a href="sunglasses.html"><i
+						class="fa fa-file-text-o"></i> <span>Add</span></a></li>
+				<li><a href="sweater.html"><i class="lnr lnr-pencil"></i> <span>Stadistic</span></a></li>
+				<li id="menu-academico"><a href="catalog.html"><i
+						class="fa fa-file-text-o"></i> <span>Catalog</span></a></li>
+				<li id="menu-academico"><a href="shoes.html"><i
+						class="lnr lnr-book"></i> <span>Shoes</span></a></li>
+				<li><a href="bags.html"><i class="lnr lnr-envelope"></i> <span>Bags</span></a></li>
+				<li><a href="products.html"><i class="lnr lnr-chart-bars"></i>
+						<span>Watches</span></a></li>
+				<li id="menu-academico"><a href="#"><i
+						class="lnr lnr-layers"></i> <span>Tabs Calender</span> <span
+						class="fa fa-angle-right" style="float: right"></span></a>
+					<ul id="menu-academico-sub">
+						<li id="menu-academico-avaliacoes"><a href="tabs.html">Tabs</a></li>
+						<li id="menu-academico-boletim"><a href="calender.html">Calender</a></li>
+
+					</ul></li>
+				<li><a href="#"><i class="lnr lnr-chart-bars"></i> <span>Logout</span>
+						<span class="fa fa-angle-right" style="float: right"></span></a>
+					<ul>
+						<li><a href="input.html"> Input</a></li>
+						<li><a href="validation.html">Validation</a></li>
+					</ul></li>
+			</ul>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+
+	<script>
+		var toggle = true;
+
+		$(".sidebar-icon").click(
+				function() {
+					if (toggle) {
+						$(".page-container").addClass("sidebar-collapsed")
+								.removeClass("sidebar-collapsed-back");
+						$("#menu span").css({
+							"position" : "absolute"
+						});
+					} else {
+						$(".page-container").removeClass("sidebar-collapsed")
+								.addClass("sidebar-collapsed-back");
+						setTimeout(function() {
+							$("#menu span").css({
+								"position" : "relative"
+							});
+						}, 400);
+					}
+
+					toggle = !toggle;
+				});
+	</script>
+
+	<script th:src="@{../js/jquery.nicescroll.js}"></script>
+	<script th:src="@{../js/scripts.js}"></script>
+	<script th:src="@{../js/bootstrap.min.js}"></script>
+	<script th:src="@{../js/jquery.flot.js}"></script>
+
+
+	<script th:src="@{../js/menu_jquery.js}"></script>
+
+
+
+</body>
+</html>

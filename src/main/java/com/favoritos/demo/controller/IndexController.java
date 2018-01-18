@@ -56,7 +56,7 @@ public class IndexController {
 	@RequestMapping(value = "/byDisc", method = RequestMethod.POST)
 	public String byDisc( Model model, @ModelAttribute("descripcion") Descripcion descripcion, BindingResult result) {
 		int disco = descripcion.getNumeroDisco();
-		List<Descripcion> d = (List) descripcionServices.demo(disco);
+		List<Descripcion> d = (List<Descripcion>) descripcionServices.demo(disco);
 		
 		model.addAttribute("cursos", d);
 		model.addAttribute("url", "byDisc");
@@ -85,6 +85,45 @@ public class IndexController {
 		
 		return "home/SearchByDisc";
 	}
+	
+	@RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
+	public String Detail(Model model, @PathVariable int id) {
+		
+		Descripcion d = descripcionServices.findOne(id);
+		
+		model.addAttribute("curso", d);
+			
+		return "home/Details";		
+	}
+	
+	
+	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
+	public String update(Model model, @PathVariable int id) {
+		
+		Descripcion d = descripcionServices.findOne(id);
+		
+		model.addAttribute("curso", d);
+			
+		return "home/Update";		
+	}
+	
+	@RequestMapping(value = "/saveUpdate", method = RequestMethod.POST)
+	public String saveUpdate(Model model, @ModelAttribute("descripcion")Descripcion descripcion, BindingResult result) {
+		
+		Descripcion d = descripcionServices.findOne(descripcion.getIdDescripcion());
+		
+		d.setNombreCurso(descripcion.getNombreCurso());		
+		
+		descripcionServices.save(d);
+		
+		model.addAttribute("curso", d);
+			
+		return "home/Update";		
+	}
+	
+	
+	
+	
 	
 	
 	
