@@ -19,7 +19,17 @@
 	
 	
 	
+	
+	
+	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
+
 
 
 
@@ -56,6 +66,15 @@
 <!-- //lined-icons -->
 <script th:src="@{ js/jquery-1.10.2.min.js }"></script>
 
+<style>
+#info {
+	color: black;
+}
+
+.form-control {
+	color: #2C2CC9 !important;
+}
+</style>
 
 
 </head>
@@ -137,7 +156,7 @@
 				<div class="col-md-5 skil">
 					<div class="content-top-1">
 						<div class="col-md-4 top-content">
-							<h5>Disco</h5>
+							<h5>Disc</h5>
 							<label th:text="${ totoalDisco } "></label>
 						</div>
 						<div class="col-md-8 top-content1">
@@ -161,21 +180,21 @@
 					</div>
 					<div class="content-top-1">
 						<div class="col-md-4 top-content">
-							<h5>Formadores</h5>
+							<h5>Trainer</h5>
 							<label th:text="${ totoalFormador }"></label>
 						</div>
 						<div class="col-md-8 top-content">
 							<div id="demo-pie-2">
 								<span>
-								
-								<h3>Add Disc</h3>
-										<form>
-											<input type="text" value="" name="disc"
-												placeholder="Disc Number" class="form-control" /> <a
-												href="" class="btn btn-danger">List</a> <input type="submit"
-												value="create" class="btn btn-info" />
-										</form>
-								
+
+									<h3>Add Disc</h3>
+									<form>
+										<input type="text" value="" name="disc"
+											placeholder="Disc Number" class="form-control" /> <a href=""
+											class="btn btn-danger">List</a> <input type="submit"
+											value="create" class="btn btn-info" />
+									</form>
+
 								</span>
 							</div>
 						</div>
@@ -210,7 +229,61 @@
 								<div class="col-md-3 mid-content-top">
 									<div class="middle-content">
 										<h3>Create Course :</h3>
-										
+										<table class="table">
+											<tr>
+												<td>Disc :</td>
+												<td><select name="disc" class="form-control">
+														<option th:each="disc : ${listaDisco}"
+															th:value="${disc.idDisco}" th:text="${disc.numeroDisco}"></option>
+												</select></td>
+											</tr>
+											<tr>
+												<td>Trainer :</td>
+												<td><select name="disc" class="form-control">
+														<option th:each="trainer : ${listaFormador}"
+															th:value="${trainer.idFormador}"
+															th:text="${trainer.nombreFormador}"></option>
+												</select></td>
+											</tr>
+											<tr>
+												<td>Genero :</td>
+												<td><select name="disc" class="form-control">
+														<option th:each="genero : ${listaGenero}"
+															th:value="${genero.id}" th:text="${genero.genero}"></option>
+												</select></td>
+											</tr>
+											<tr>
+												<td>Name :</td>
+												<td><input type="text" class="form-control" value=""
+													name="nombreCurso" /></td>
+											</tr>
+											<tr>
+												<td>Size :</td>
+												<td><input type="text" class="form-control" value=""
+													name="peso" /></td>
+											</tr>
+											<tr>
+												<td>Imagen :</td>
+												<td><input type="file" class="form-control" value=""
+													name="imagen" /></td>
+											</tr>
+											<tr>
+												<td>Descripcion :</td>
+												<td><textarea rows="" cols="" name="descripcion" class="form-control"></textarea></td>
+											</tr>
+											<tr>
+												<td>Language :</td>
+												<td><select name="idioma" class="form-control">
+														<option value="Spanish">Spanish</option>
+														<option value="English">English</option>
+														<option value="Portugues">Portugues</option>
+												</select></td>
+											</tr>
+											<tr>
+												<td colspan="2"><input type="submit" name="crear" value="Create" class="form-control tbn tbn-info"/></td>
+											</tr>
+
+										</table>
 									</div>
 								</div>
 
